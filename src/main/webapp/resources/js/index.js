@@ -19,12 +19,13 @@ $(document).ready(function() {
         createTaskField()
     })
 
+
     var index = 1;
     //функция для добавления задачи
     function createTaskField(){
         var thisFieldIndex = index++;
         var task = $('.inputForTask').val();
-        if(task!=""&&task!="введите задачу"){
+        if(task!=""&&task!="что необходимо убрать"){
             $('.taskAddField').after(
                 createTaskDiv(task, thisFieldIndex)
             )
@@ -41,26 +42,26 @@ $(document).ready(function() {
                 }
             })
             $('#deleteButton'+thisFieldIndex).click(function(){
-                this.src='Styles/close1.png';
+                this.src='../../resources/css/close1.png';
                 $(this).mouseout(function(){
-                    this.src='Styles/close1.png';
+                    this.src='../../resources/css/close1.png';
                 })
                 $(this).parents('#taskField'+thisFieldIndex).animate({opacity: "hide"});
             })
             $('#deleteButton'+thisFieldIndex).mouseover(function(){
-                this.src='Styles/close2.png';
+                this.src='../../resources/css/close2.png';
             })
             $('#deleteButton'+thisFieldIndex).mouseout(function(){
-                this.src='Styles/close.png';
+                this.src='../../resources/css/close.png';
             })
             var openStatus = false;
             $('#openButton'+thisFieldIndex).click(function(){
                 if(openStatus==false) {
                     openStatus = true;
-                    this.src="Styles/hide.png";
+                    this.src="../../resources/css/hide.png";
                 }else {
                     openStatus = false;
-                    this.src="Styles/open.png";
+                    this.src="../../resources/css/open.png";
                 }
                 $(this).parent('#taskField'+thisFieldIndex).children('#subTasksField'+thisFieldIndex).slideToggle("slow");
                 //сделать выделение текста поля ввода подзадачи, после открытия блока подзадачи
@@ -82,10 +83,9 @@ $(document).ready(function() {
                 }
             })
         }
-        $(".inputForTask").val("введите задачу");
+        $(".inputForTask").val("что необходимо убрать");
         $(".inputForTask").select();
     }
-
 
     //функция для добавления подзадачи
     function createSubtaskField(taskFieldIndex, subFieldIndex){
@@ -103,15 +103,15 @@ $(document).ready(function() {
                 }
             })
             $('#deleteSubtaskButton'+subFieldIndex).mouseover(function(){
-                this.src='Styles/close2.png';
+                this.src='../../resources/css/close2.png';
             })
             $('#deleteSubtaskButton'+subFieldIndex).mouseout(function(){
-                this.src='Styles/close.png';
+                this.src='../../resources/css/close.png';
             })
             $('#deleteSubtaskButton'+subFieldIndex).click(function(){
-                this.src='Styles/close1.png';
+                this.src='../../resources/css/close1.png';
                 $(this).mouseout(function(){
-                    this.src='Styles/close1.png';
+                    this.src='../../resources/css/close1.png';
                 })
                 $(this).parents('#subtaskField'+subFieldIndex).animate({opacity: "hide"});
             })
@@ -122,13 +122,14 @@ $(document).ready(function() {
 
     }
 
+
     //функция создающая и возвращающая DIV задачи
     function createTaskDiv(task, thisIndex){
         var taskField =
             '<div class="taskField" id="taskField'+thisIndex+'">' +
             '<div class="task">'+task+'</div>' +
-            '<img src="Styles/close.png" class="deleteButton" id="deleteButton'+thisIndex+'">'+
-            '<img src="Styles/open.png" class="openButton" id="openButton'+thisIndex+'">'+
+            '<img src="../../resources/css/close.png" class="deleteButton" id="deleteButton'+thisIndex+'">'+
+            '<img src="../../resources/css/open.png" class="openButton" id="openButton'+thisIndex+'">'+
             '<button class="cleanButton" id="cleanButton'+thisIndex+'">не убрано</button>'+
             '<div class="subTasksField" id="subTasksField'+thisIndex+'">'+
             '<div class="subtaskAddField" id="subtaskAddField'+thisIndex+'">'+
@@ -146,7 +147,7 @@ $(document).ready(function() {
             $('#subtaskAddField'+thisFieldIndex).after(
                 '<div class="subtaskField" id="subtaskField'+subFieldIndex+'">' +
                 '<div class="subtask">'+subtask+'</div>' +
-                '<img src="Styles/close.png" class="deleteButton" id="deleteSubtaskButton'+subFieldIndex+'">' +
+                '<img src="../../resources/css/close.png" class="deleteButton" id="deleteSubtaskButton'+subFieldIndex+'">' +
                 '<button class="subtaskCleanButton" id="subtaskCleanButton'+subFieldIndex+'">не убрано</button>' +
                 '</div>'
             )

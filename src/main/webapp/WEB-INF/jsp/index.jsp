@@ -11,7 +11,7 @@
 </div>
 <div class="workspace">
 	<div class="taskAddField">
-		<input class="inputForTask" type="text" value="введите задачу">
+		<input class="inputForTask" type="text" value="что необходимо убрать">
 		<button class="button">добавить</button>
 	</div>
 </div>
